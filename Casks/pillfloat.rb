@@ -1,6 +1,6 @@
 cask "pillfloat" do
   version "1.0.0"
-  sha256 "5a928fd3e310eeb255fe801a37c55f45c602f42f27fa2704ec28168b2ffe09a5"
+  sha256 "1d144706bec708ad339b3c45aef8fc4d5c7a02aec4d5cfc2ef0d6adca1d726e8"
 
   url "https://github.com/OrangeAKA/pillfloat/releases/download/v#{version}/PillFloat.app.zip"
   name "PillFloat"
@@ -10,6 +10,12 @@ cask "pillfloat" do
   depends_on macos: ">= :ventura"
 
   app "PillFloat.app"
+
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/PillFloat.app"],
+                   sudo: false
+  end
 
   zap trash: [
     "~/Library/Preferences/com.krishnaakhil.pillfloat.plist",
