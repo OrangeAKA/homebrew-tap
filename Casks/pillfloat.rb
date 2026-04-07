@@ -15,10 +15,6 @@ cask "pillfloat" do
     system_command "/usr/bin/xattr",
                    args: ["-rd", "com.apple.quarantine", "#{appdir}/PillFloat.app"],
                    sudo: false
-    # Reset stale Accessibility TCC entry so macOS prompts fresh after binary update
-    system_command "/usr/bin/tccutil",
-                   args: ["reset", "Accessibility", "com.krishnaakhil.pillfloat"],
-                   sudo: false
   end
 
   zap trash: [
