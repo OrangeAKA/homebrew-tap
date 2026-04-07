@@ -1,6 +1,6 @@
 cask "pillfloat" do
-  version "1.2.1"
-  sha256 "c974120dad826b6a12bad27f0c4f609a178483f0425b640b7fd3a2a22e18b54f"
+  version "1.2.2"
+  sha256 "539b62a61595cb2dbfd8e10e6b2422f6c0dcb5c83d25329ab1da075210d5ff3f"
 
   url "https://github.com/OrangeAKA/pillfloat/releases/download/v#{version}/PillFloat.app.zip"
   name "PillFloat"
