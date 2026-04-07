@@ -1,6 +1,6 @@
 cask "pillfloat" do
-  version "1.0.5"
-  sha256 "181667783acad2811c37710b77db5aba87199f1b137464d1c75481c53eac2603"
+  version "1.1.0"
+  sha256 "cfb5a904c6a27292fcfbeda71d323a1fba1ca4b2ea82569772c7a9c62bb5f5a3"
 
   url "https://github.com/OrangeAKA/pillfloat/releases/download/v#{version}/PillFloat.app.zip"
   name "PillFloat"
@@ -14,6 +14,10 @@ cask "pillfloat" do
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-rd", "com.apple.quarantine", "#{appdir}/PillFloat.app"],
+                   sudo: false
+    # Reset stale Accessibility TCC entry so macOS prompts fresh after binary update
+    system_command "/usr/bin/tccutil",
+                   args: ["reset", "Accessibility", "com.krishnaakhil.pillfloat"],
                    sudo: false
   end
 
